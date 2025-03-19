@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.lang.Character;
 
 public class Scanner {
 	
@@ -20,22 +21,22 @@ public class Scanner {
 	
 	static {
 		keywords = new HashMap<>();
-		keywords.put("and", AND);
-		keywords.put("class", CLASS);
-		keywords.put("else", ELSE);
-	    keywords.put("false", FALSE);
+		keywords.put("や", AND);
+		keywords.put("階層", CLASS);
+		keywords.put("その他", ELSE);
+	    keywords.put("似非", FALSE);
 	    keywords.put("for", FOR);
-	    keywords.put("fun", FUN);
-	    keywords.put("if", IF);
-	    keywords.put("nil", NIL);
-	    keywords.put("or", OR);
-	    keywords.put("print", PRINT);
-	    keywords.put("return", RETURN);
-	    keywords.put("super", SUPER);
-	    keywords.put("this", THIS);
-	    keywords.put("true", TRUE);
-	    keywords.put("var", VAR);
-	    keywords.put("while", WHILE);
+	    keywords.put("関数", FUN);
+	    keywords.put("なら", IF);
+	    keywords.put("無い", NIL);
+	    keywords.put("か", OR);
+	    keywords.put("表示", PRINT);
+	    keywords.put("返事", RETURN);
+	    keywords.put("上位", SUPER);
+	    keywords.put("これの", THIS);
+	    keywords.put("正", TRUE);
+	    keywords.put("定数", VAR);
+	    keywords.put("の間", WHILE);
 	}
 	
 	Scanner(String source) {
@@ -55,15 +56,15 @@ public class Scanner {
 	private void scanToken() {
 		char c = advance();
 		switch (c) {
-		case '(' : addToken(LEFT_PAREN); break;
-		case ')' : addToken(RIGHT_PAREN); break;
-		case '{' : addToken(LEFT_BRACE); break;
-		case '}' : addToken(RIGHT_BRACE); break;
-		case ',' : addToken(COMMA); break;
-		case '.' : addToken(DOT); break;
+		case '（' : addToken(LEFT_PAREN); break;
+		case '）' : addToken(RIGHT_PAREN); break;
+		case '｛' : addToken(LEFT_BRACE); break;
+		case '｝' : addToken(RIGHT_BRACE); break;
+		case '、' : addToken(COMMA); break;
+		case '．' : addToken(DOT); break;
 		case '-' : addToken(MINUS); break;
 		case '+' : addToken(PLUS); break;
-		case ';' : addToken(SEMICOLON); break;
+		case '；' : addToken(SEMICOLON); break;
 		case '*' : addToken(STAR); break;
 		case '!' :
 			addToken(match('=') ? BANG_EQUAL : BANG);
@@ -139,7 +140,7 @@ public class Scanner {
 		}
 		
 		if (isAtEnd()) {
-			Kangyo.error(line,  "Unterminated string");
+			Kangyo.error(line, "Unterminated string");
 			return;
 		}
 		
@@ -167,18 +168,19 @@ public class Scanner {
 		return source.charAt(current + 1);
 	}
 	
-	private boolean isAlpha(char c) { //TODO: replace with unicode-aware
-		return (c >= 'a' && c <= 'z')
-				|| (c >= 'A' && c <= 'Z')
-				|| c == '_';
+	private boolean isAlpha(char c) {
+		return (Character.isAlpha(c))
+			|| (Character.isIdeographic(c))
+			|| (c >= '\u3041' && c <= '\u309f')
+			|| (c >= '\u30ad' && c <= '\u30ff');
 	}
 	
 	private boolean isAlphaNumeric(char c) {
 		return isAlpha(c) || isDigit(c);
 	}
 	
-	private boolean isDigit(char c) { // TODO: replace with unicode-accepting function
-		return c >= '0' && c <= '9';
+	private boolean isDigit(char c) {
+		return (Character.isDigit());
 	}
 	
 	private boolean isAtEnd() {
