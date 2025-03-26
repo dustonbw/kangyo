@@ -90,6 +90,7 @@ public class Scanner {
 		case ' ' :
 		case '\r' :
 		case '\t' :
+		case '　': // full-width space
 			break;
 		
 		case '\n' :
@@ -105,7 +106,7 @@ public class Scanner {
 			} else if (isAlpha(c)) {
 				identifier();
 			} else {
-				Kangyo.error(line,  "Unexpected character.");
+				Kangyo.error(line,  "Unexpected character '" + c +"'");
 				break;
 			}
 		}
