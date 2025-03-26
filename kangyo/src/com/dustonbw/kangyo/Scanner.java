@@ -169,7 +169,7 @@ public class Scanner {
 	}
 	
 	private boolean isAlpha(char c) {
-		return (Character.isAlpha(c))
+		return (Character.isAlphabetic(c))
 			|| (Character.isIdeographic(c))      // kanji
 			|| (c >= '\u3041' && c <= '\u309f')  // hiragana
 			|| (c >= '\u30ad' && c <= '\u30ff'); // katakana
@@ -180,7 +180,7 @@ public class Scanner {
 	}
 	
 	private boolean isDigit(char c) {
-		return (Character.isDigit());
+		return (Character.isDigit(c));
 	}
 	
 	private boolean isAtEnd() {
