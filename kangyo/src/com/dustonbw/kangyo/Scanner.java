@@ -170,9 +170,9 @@ public class Scanner {
 	
 	private boolean isAlpha(char c) {
 		return (Character.isAlpha(c))
-			|| (Character.isIdeographic(c))
-			|| (c >= '\u3041' && c <= '\u309f')
-			|| (c >= '\u30ad' && c <= '\u30ff');
+			|| (Character.isIdeographic(c))      // kanji
+			|| (c >= '\u3041' && c <= '\u309f')  // hiragana
+			|| (c >= '\u30ad' && c <= '\u30ff'); // katakana
 	}
 	
 	private boolean isAlphaNumeric(char c) {

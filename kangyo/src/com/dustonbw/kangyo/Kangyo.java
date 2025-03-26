@@ -12,6 +12,7 @@ public class Kangyo {
 	
 	static boolean hadError = false; // tripped if an error is encountered.
 
+
 	public static void main(String[] args) throws IOException {
 		if (args.length > 1) {
 			System.out.println("Usage: tanjyun [script]");
