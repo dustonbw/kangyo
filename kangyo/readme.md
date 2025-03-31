@@ -14,6 +14,10 @@ Clone this repository and run `make jar` to build a JAR archive. Then `cd` to
 `bin` and run `java -jar kangyo.jar`. The interpreter can be run as a REPL or
 can be passed an input file to read: invoke as `java -jar kangyo.jar <INPUT>`.
 
+(On Windows, you'll need to build manually; compile every file in the
+`com/dustonbw/kangyo` directory under `src` and make a JAR if desired. Entry
+point is in the class `com.dustonbw.kangyo.Kangyo`)
+
 ## Troubleshooting
 
 If you are providing input which matches the keywords and identifier character
