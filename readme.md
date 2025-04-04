@@ -5,13 +5,13 @@ Kangyo is a proof-of-concept localization of (parts of) the [Lox](https://github
 This is a very close derivitive of the upstream *lox* project, as described in
 Nystrom's book.
 
-It was created as a demonstration to accompany a technical report, submitted
-for marks as part of *Technical Communication for Engineering Techonlogies*
+It was created as a demonstration to accompany a technical report, written for
+*Technical Communication for Engineering Techonlogies*
 (ENL2019T) at Algonquin College of Applied Arts and Technology.
 
 As of writing, just the Scanner has been implemented (the first four chapters
 in the book). Only slight modifications have been made for Unicode- and Japanese
-character-awareness.
+character-awareness; the main point here is to show that it *can* be done.
 
 ## Building and Running
 
