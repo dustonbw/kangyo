@@ -10,7 +10,8 @@ for marks as part of *Technical Communication for Engineering Techonlogies*
 (ENL2019T) at Algonquin College of Applied Arts and Technology.
 
 As of writing, just the Scanner has been implemented (the first four chapters
-in the book).
+in the book). Only slight modifications have been made for Unicode- and Japanese
+character-awareness.
 
 ## Building and Running
 
